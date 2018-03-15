@@ -1,0 +1,29 @@
+import csv
+ 
+def convertisseur(chemin):
+#Exemple de chemin :    'C:\\Users\\user\\Desktop\\TIPE\\tableau\\Frequence1_bis.csv'
+# /!\ Bien mettre les double slash et les guillemets. /!\
+ 
+ 
+    #Tableau sera une liste de listes [[t1, acc1], [t2,acc2] ,... , [tn,accn]]
+    Tableau = []
+    Temps = []
+    Acc = []
+     
+    #ouverture et lecture du fichier csv
+    f = open(chemin)
+    csv_f = csv.reader(f)
+     
+    # row = ligne ==> ça met le tableur dans le tableau sous forme de liste de listes
+    for row in csv_f:
+        Tableau.append(row)
+    
+    f.close
+     
+    #on récupère les "sous listes" du Tableau
+    n = len(Tableau)
+    for i in range(n-1):
+        Temps.append(Tableau[i][0])
+        Acc.append(Tableau[i][1])
+             
+    return (Temps, Acc)
