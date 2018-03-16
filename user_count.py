@@ -1,3 +1,4 @@
 from collections import Counter
-myliste = ['david', 'mattia', 'david', 'karen', 'yanis', 'yanis', 'karen']
-counter(myliste)
+myliste = open('res.txt').read().split()
+res = Counter(myliste)
+print(res)
