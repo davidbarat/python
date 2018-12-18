@@ -1,0 +1,24 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv('C:\\David\\python\\titanic_train.csv', sep=';')
+
+print(df.info())
+
+print(df.dtypes)
+
+df.head(10)
+df.describe()
+
+clist = ['black','green']
+colors = [clist[c] for c in df['Survived']]
+
+X = df.iloc[:,0-5]
+y = df.iloc[:, 6]
+
+#df['Age'].mean
+df['Age'] = df['Age'].fillna(df['Age'].mean())
+
+sns.pairplot(df, hue="Embarked")
